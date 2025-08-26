@@ -4,16 +4,17 @@
 
     import { initializeApp } from "firebase/app";
 	import { getMessaging, onMessage, getToken } from "firebase/messaging";
-    import { firebaseConfig, vapidPublicKey } from '$lib/config/firebaseConfig.js';
-	const app = initializeApp(firebaseConfig);
-	const messaging = getMessaging(app);
+
 	import { askPermissions } from './firebaseStore.js';
 	import { permissionGranted, notificationsMenu } from './firebaseStore.js';
   	import { Toaster, toast } from 'svelte-sonner';
 	import { goto } from '$app/navigation';
 
-	let { darkMode } = $props();
+	let { darkMode, config } = $props();
 	let pg = $state(false);
+
+	const app = initializeApp(config.firebaseConfig);
+	const messaging = getMessaging(app);
 
 	const unsubscribe = permissionGranted.subscribe(value => {
 		pg=value;
@@ -53,7 +54,7 @@
 				//console.log('No permission granted');
 				return;
 			}
-			getToken(messaging, {vapidKey: vapidPublicKey, serviceWorkerRegistration: registrations[0]}).then(async (currentToken) => {
+			getToken(messaging, {vapidKey: config.vapidPublicKey, serviceWorkerRegistration: registrations[0]}).then(async (currentToken) => {
 				if (currentToken) {
 					//console.log('Token available: ', currentToken);
 					askPermissions.set(false); //Permisos ya concedidos

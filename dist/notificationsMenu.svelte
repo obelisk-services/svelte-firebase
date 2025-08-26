@@ -8,7 +8,7 @@
 	import FirebaseHandler from "./firebaseHandler.svelte";
 
 	let showNotificationsMenu=$state(false);
-	let { darkMode, appName='' } = $props();
+	let { darkMode, config, appName='' } = $props();
 
 	let nm=$state([
 		//{text: 'Nuevos contratos', count: 1, href: '/agente/contratos'}, //Ejemplo
@@ -36,7 +36,7 @@
 			<i class="absolute -top-1 -right-1 text-app-600 icon-[mdi--circle] text-xs"></i>
 			<i class="absolute -top-1 -right-1 text-app-600 icon-[mdi--circle] text-xs animate-ping"></i>
 		{/if}
-		<FirebaseHandler {darkMode}/>
+		<FirebaseHandler {darkMode} {config}/>
 	  </button>
 	  {#if showNotificationsMenu}
 		<ul transition:fade use:clickOutside onoutclick={() => (showNotificationsMenu = false)} class="absolute right-0 w-56 p-2 mt-2 space-y-2 text-gray-600 bg-white border border-gray-100 rounded-md shadow-md dark:text-gray-300 dark:border-gray-700 dark:bg-gray-700">
