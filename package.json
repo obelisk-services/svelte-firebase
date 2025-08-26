@@ -46,7 +46,6 @@
   "type": "module",
   "dependencies": {
     "aws-amplify": "^6.14.4",
-    "nprogress": "^0.2.0",
     "firebase": "^11.8.0",
     "svelte-sonner": "^1.0.3",
     "svelte-js-functions-package": "git+https://git@github.com/obelisk-services/svelte-js-functions-package.git"
