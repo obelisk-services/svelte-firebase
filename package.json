@@ -1,5 +1,5 @@
 {
-  "name": "svelte-js-functions-package-",
+  "name": "svelte-firebase",
   "version": "1.0.0",
   "license": "OBELISK",
   "author": {
@@ -7,9 +7,9 @@
     "email": "info@obelisk-services.com",
     "url": "https://obelisk-services.com"
   },
-  "homepage": "https://github.com/obelisk-services/svelte-js-functions-package-",
+  "homepage": "https://github.com/obelisk-services/svelte-firebase",
   "bugs": {
-    "url": "https://github.com/obelisk-services/svelte-js-functions-package-/issues"
+    "url": "https://github.com/obelisk-services/svelte-firebase/issues"
   },
   "exports": {
     ".": {
