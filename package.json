@@ -53,7 +53,7 @@
   "keywords": [
     "Svelte",
     "SvelteKit",
-    "SvelteKit Js functions"
+    "SvelteKit Firebase"
   ],
   "scripts": {
     "dev": "vite dev",
