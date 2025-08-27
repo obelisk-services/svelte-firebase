@@ -1,7 +1,7 @@
 import { initializeApp } from "firebase/app";
 import { getMessaging, onBackgroundMessage } from "firebase/messaging/sw";
 
-export function initFirebase(firebaseConfig) {
+export const initFirebase = (firebaseConfig) => {
   // Initialize the Firebase app in the service worker by passing in
   // your app's Firebase config object.
   // https://firebase.google.com/docs/web/setup#config-object
