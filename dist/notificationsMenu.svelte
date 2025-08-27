@@ -36,7 +36,7 @@
 			<i class="absolute -top-1 -right-1 text-app-600 icon-[mdi--circle] text-xs"></i>
 			<i class="absolute -top-1 -right-1 text-app-600 icon-[mdi--circle] text-xs animate-ping"></i>
 		{/if}
-		<FirebaseHandler {darkMode} {config}/>
+		{#if "Notification" in window}<FirebaseHandler {darkMode} {config}/>{/if}
 	  </button>
 	  {#if showNotificationsMenu}
 		<ul transition:fade use:clickOutside onoutclick={() => (showNotificationsMenu = false)} class="absolute right-0 w-56 p-2 mt-2 space-y-2 text-gray-600 bg-white border border-gray-100 rounded-md shadow-md dark:text-gray-300 dark:border-gray-700 dark:bg-gray-700">
@@ -58,9 +58,14 @@
 				</li>
 			{/each}
 			<li class="!mt-0">
-				<FirebasePermission {appName} />
+				{#if "Notification" in window}
+					<FirebasePermission {appName} />
+				{:else}
+					<p>Su navegador no soporta las notificaciones push.</p>
+				{/if}
 			</li>
 		</ul>
 		
 	{/if}
 </div>
+
